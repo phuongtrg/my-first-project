@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>ddl_userProfile</name>
+   <tag></tag>
+   <elementGuidId>bcc703b1-6357-49a7-8a9d-bc40c682d447</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//span[@class='oxd-userdropdown-tab']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//span[@class='oxd-userdropdown-tab']</value>
+      <webElementGuid>1daa7e67-abf2-490f-949f-b216dba61880</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>

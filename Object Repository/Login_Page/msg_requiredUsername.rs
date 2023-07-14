@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>msg_requiredUsername</name>
+   <tag></tag>
+   <elementGuidId>44b5689d-0d8e-441e-91df-6a182a3ccd31</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@name='username']/../../span[text()='Required']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//input[@name='username']/../../span[text()='Required']</value>
+      <webElementGuid>d56239d3-1319-431a-9447-1d48bac9ada4</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>

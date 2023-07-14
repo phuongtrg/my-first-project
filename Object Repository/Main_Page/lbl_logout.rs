@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>lbl_logout</name>
+   <tag></tag>
+   <elementGuidId>72aa65c2-9de6-4714-98bd-30e66f8dc278</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//a[contains(@href,'/web/index.php/auth/logout')]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//a[contains(@href,'/web/index.php/auth/logout')]</value>
+      <webElementGuid>035d4196-4eda-40e8-9e40-95793bf2e0ff</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>
