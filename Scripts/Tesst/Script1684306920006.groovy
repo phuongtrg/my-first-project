@@ -34,6 +34,6 @@ public class PhuongTruong{
 		}
 		println("Random list = " + list);
 	}
-	else println ("nhập ngu")
+	else println ("nhập ngubbbbbbb")
 	}
 }
