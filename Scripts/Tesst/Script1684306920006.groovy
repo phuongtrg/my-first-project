@@ -16,14 +16,14 @@ import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import internal.GlobalVariable as GlobalVariable
 
 //exercise 04: Nhập số N
-PhuongTruong.exercise4(100)
+PhuongTruong.exercise4(0)
 
 public class PhuongTruong{
 	//exercise 04
 	public static ArrayList<String> exercise4(int numberOfCharacter) {
 		def charactes = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		def	list =[]
-		if (numberOfCharacter <= charactes.size()) {
+		if (numberOfCharacter <= charactes.size() && numberOfCharacter > 0) {
 		while (list.size() < numberOfCharacter) {
 			Random random = new Random ();
 			def index = random.nextInt(charactes.length());
@@ -34,6 +34,6 @@ public class PhuongTruong{
 		}
 		println("Random list = " + list);
 	}
-	else println ("nhập ngubbbbbbb")
+	else println ("Thôi đừng test nữa! Vui lòng nhập trong range 1-36")
 	}
 }

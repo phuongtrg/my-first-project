@@ -19,30 +19,43 @@ import org.openqa.selenium.Keys as Keys
 
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
+def loginURL = URL + '/web/index.php/auth/login'
 def UserName = 'Admin'
 def Password = 'admin123'
 
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Input username'
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
+
+'2. Input username'
 WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
 
-'Click Button Login'
+'VP: Should display username correctly'
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'value',UserName,1)
+
+'3. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display "Required" text at password'
 WebUI.verifyElementVisible(findTestObject('Login_Page/msg_requiredPassword'))
 
-'Clear username'
+'4. Clear username'
 WebUI.sendKeys(findTestObject('Login_Page/txt_username'), Keys.chord(Keys.CONTROL, 'a'))
 WebUI.sendKeys(findTestObject('Login_Page/txt_username'), Keys.chord(Keys.BACK_SPACE))
 
-'Input password'
+'5. Input password'
 WebUI.setText(findTestObject('Login_Page/txt_password'), Password)
 
-'Click Button Login'
+'VP: Should display password correctly'
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',Password,1)
+
+'6. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display "Required" text at username'

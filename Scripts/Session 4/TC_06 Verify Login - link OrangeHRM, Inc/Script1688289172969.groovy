@@ -20,12 +20,19 @@ import org.openqa.selenium.Keys as Keys
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
 def OrangeHRMURL = 'https://www.orangehrm.com/'
+def loginURL = URL + '/web/index.php/auth/login'
 
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Click  link OrangeHRM, Inc.'
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
+
+'2. Click  link OrangeHRM, Inc.'
 WebUI.click(findTestObject('Login_Page/lnk_OrangeHRM'))
 
 'VP: Should refirect to HRM page:'
@@ -38,4 +45,4 @@ windowTitle = WebUI.getWindowTitle()
 WebUI.verifyEqual(windowTitle.contains('OrangeHRM HR Software'),true)
 
 'Post-Condtion: Close Browser'
-//WebUI.closeBrowser()
+WebUI.closeBrowser()

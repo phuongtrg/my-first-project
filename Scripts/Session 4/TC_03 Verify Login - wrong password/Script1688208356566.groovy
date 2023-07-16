@@ -19,19 +19,31 @@ import org.openqa.selenium.Keys as Keys
 
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
+def loginURL = URL + '/web/index.php/auth/login'
 def UserName = 'Admin'
 def Password = 'admin123'
+def WrongPassword = Password + "4"
 def EmptyUserName	= ''
 
 'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Input username and password'
-WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
-WebUI.setText(findTestObject('Login_Page/txt_password'), Password + "4")
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
 
-'Click Button Login'
+'1. Input username and wrong password'
+WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
+WebUI.setText(findTestObject('Login_Page/txt_password'), WrongPassword)
+
+'VP: Should input successful'
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'value',UserName,1)
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',WrongPassword,1)
+
+'2. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display "Invalid credentials" text.Username/password inputted before should clear'

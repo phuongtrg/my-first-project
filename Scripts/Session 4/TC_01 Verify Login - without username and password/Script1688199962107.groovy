@@ -19,23 +19,27 @@ import org.openqa.selenium.Keys as Keys
 
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
-
+def loginURL = URL + '/web/index.php/auth/login'
 //def UserName = ''
 
 //def Password = ''
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
-
 WebUI.maximizeWindow()
+
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
 
 //WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
 //WebUI.setText(findTestObject('Login_Page/txt_password'), Password)
-'Click Button Login'
+'2. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display "Required" text at username and password'
 WebUI.verifyElementVisible(findTestObject('Login_Page/msg_requiredUsername'))
-
 WebUI.verifyElementVisible(findTestObject('Login_Page/msg_requiredPassword'))
 
 'Post-Condtion: Close Browser'

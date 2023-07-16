@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>lbl_login</name>
+   <tag></tag>
+   <elementGuidId>23b9d2e7-b0ea-42e2-851b-c2eb24350577</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//div[@class='orangehrm-login-layout']//h5[text()[contains(.,'Login')]]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div[@class='orangehrm-login-layout']//h5[text()[contains(.,'Login')]]</value>
+      <webElementGuid>664875d8-1f16-4e1c-b0a8-65b782049e84</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>

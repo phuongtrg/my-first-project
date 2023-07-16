@@ -21,16 +21,23 @@ import org.openqa.selenium.Keys as Keys
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
 def DashboardURL = URL + '/web/index.php/dashboard/index'
+def loginURL = URL + '/web/index.php/auth/login'
 def UserName = 'Admin'
 def Password = 'admin123'
 def attributename = 'class'
 def attributevalue = 'oxd-main-menu-item active'
 
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Input username and password'
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
+
+'2. Input username and password'
 WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
 WebUI.setText(findTestObject('Login_Page/txt_password'), Password)
 
@@ -38,13 +45,13 @@ WebUI.setText(findTestObject('Login_Page/txt_password'), Password)
 WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'value',UserName,1)
 WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',Password,1)
 
-'Click Button Login'
+'3. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
-'Should login success to dashboard'
+'VP: Should login success to dashboard'
 assert WebUI.getUrl() == DashboardURL
 
-'Verify selected menu: The Dashboard menu is selected by default'
+'4. Verify selected menu: The Dashboard menu is selected by default'
 WebUI.verifyElementAttributeValue(findTestObject('Main_Page/mnu_dashboard'), attributename, attributevalue, 10)
 
 'Post-Condtion: Logout and Close Browser'

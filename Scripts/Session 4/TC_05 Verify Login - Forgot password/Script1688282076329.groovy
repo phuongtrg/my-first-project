@@ -22,14 +22,20 @@ def URL = 'https://opensource-demo.orangehrmlive.com'
 def loginURL = URL + '/web/index.php/auth/login'
 def forgotpasswordURL = URL + '/web/index.php/auth/requestPasswordResetCode'
 
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Click Forgot your password'
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
+
+'2. Click Forgot your password'
 WebUI.click(findTestObject('Login_Page/lnk_forgotpassword'))
 
-'Should refirect to reset password page: URL: /auth/requestPasswordResetCode'
+'VP: Should refirect to reset password page: URL: /auth/requestPasswordResetCode'
 assert WebUI.getUrl() == forgotpasswordURL
 
 'VP: Verify button Cancel should enable'
@@ -38,11 +44,14 @@ WebUI.verifyElementClickable(findTestObject('ResetPassword_Page/btn_cancel'))
 'VP: Verify button Reset Password should enable'
 WebUI.verifyElementClickable(findTestObject('ResetPassword_Page/btn_ResetPassword'))
 
-'Click Button Cancel'
+'3. Click Button Cancel'
 WebUI.click(findTestObject('ResetPassword_Page/btn_cancel'))
 
-'Should display login page'
+'VP: Should display Login page'
 assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
 
 'Post-Condtion: Close Browser'
 WebUI.closeBrowser()

@@ -19,19 +19,32 @@ import org.openqa.selenium.Keys as Keys
 
 'Define variable'
 def URL = 'https://opensource-demo.orangehrmlive.com'
+def loginURL = URL + '/web/index.php/auth/login'
 def UserName = 'Admin'
+def WrongUserName = UserName + "1"
 def Password = 'admin123'
+def WrongPassword = Password + "4"
 def isEmptyField	= ''
 
-'Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
+'1. Open browse then open URLs: https://opensource-demo.orangehrmlive.com'
 WebUI.openBrowser(URL)
 WebUI.maximizeWindow()
 
-'Input username and password'
-WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
-WebUI.setText(findTestObject('Login_Page/txt_password'), Password + "4")
+'VP: Should display Login page'
+assert WebUI.getUrl() == loginURL
+WebUI.verifyElementVisible(findTestObject('Login_Page/lbl_login'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_username'))
+WebUI.verifyElementVisible(findTestObject('Login_Page/txt_password'))
 
-'Click Button Login'
+'2. Input valid username and wrong password'
+WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
+WebUI.setText(findTestObject('Login_Page/txt_password'), WrongPassword)
+
+'VP: Should input successful'
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'value',UserName,1)
+WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',WrongPassword,1)
+
+'3. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display modal Invalid:'
@@ -41,12 +54,12 @@ WebUI.verifyElementVisible(findTestObject('Login_Page/msg_Invalidcredentials'))
 WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'value',isEmptyField,1)
 WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',isEmptyField,1)
 
-'Input username and password'
+'4. Input wrong username and valid password'
 WebUI.focus(findTestObject('Login_Page/txt_username'))
-WebUI.setText(findTestObject('Login_Page/txt_username'), UserName)
-WebUI.setText(findTestObject('Login_Page/txt_password'), Password + "4")
+WebUI.setText(findTestObject('Login_Page/txt_username'), WrongUserName)
+WebUI.setText(findTestObject('Login_Page/txt_password'), Password)
 
-'Click Button Login'
+'5. Click Button Login'
 WebUI.click(findTestObject('Login_Page/btn_login'))
 
 'VP: Should display modal Invalid:'
@@ -57,9 +70,4 @@ WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_username'), 'va
 WebUI.verifyElementAttributeValue(findTestObject('Login_Page/txt_password'), 'value',isEmptyField,1)
 
 'Post-Condtion: Close Browser'
-WebUI.closeBrowser()
-
-
-
-
 WebUI.closeBrowser()

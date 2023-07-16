@@ -90,6 +90,7 @@ public class PhuongTruong{
 	public static ArrayList<String> exercise4(int numberOfCharacter) {
 		def charactes = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		def	list =[]
+		if (numberOfCharacter <= charactes.size() && numberOfCharacter > 0) {
 		while (list.size() < numberOfCharacter) {
 			Random random = new Random ();
 			def index = random.nextInt(charactes.length());
@@ -97,8 +98,10 @@ public class PhuongTruong{
 				if (!list.contains(indexNumber)) {
 					list.add(indexNumber);
 				}
+			}
+			println("Random list = " + list);
 		}
-		println("Random list = " + list);
+		else println ("Thôi đừng test nữa! Vui lòng nhập trong range 1-36")
 	}
 	//exercise 05
 	public static def exercise5(int numberOfValue) {
